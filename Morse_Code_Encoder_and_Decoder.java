@@ -1,6 +1,8 @@
-import java.util.HashMap;
-import java.util.Map;
-
-public class MorseCode {
-    private static final Map<Character, String> TO_MORSE = new HashMap<>();
-    private static final Map<String, Character> FROM_MORSE = new HashMap<>();
+static {
+        String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        for (int i = 0; i < 26; i++) {
+            char letter = (char) ('A' + i);
+            TO_MORSE.put(letter, morse[i]);
+            FROM_MORSE.put(morse[i], letter);
+        }
+    }
