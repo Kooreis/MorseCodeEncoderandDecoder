@@ -1,4 +1,4 @@
-def morse_to_text(morse_code):
+def text_to_morse(text):
     morse_code_dict = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
@@ -14,14 +14,12 @@ def morse_to_text(morse_code):
                     '0':'-----', ', ':'--..--', '.':'.-.-.-',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
-    morse_code = morse_code.split(" ")
+    text = text.upper()
 
-    decoded_string = ""
-    for symbol in morse_code:
-        for key, value in morse_code_dict.items():
-            if symbol == value:
-                decoded_string += key
-                break
-            elif symbol == '/':
-                decoded_string += ' '
-    return decoded_string
+    encoded_string = ""
+    for char in text:
+        if char != ' ':
+            encoded_string += morse_code_dict[char] + ' '
+        else:
+            encoded_string += '/ '
+    return encoded_string
